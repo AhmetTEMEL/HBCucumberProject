@@ -7,14 +7,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utils.ExtentCucumberHelper;
 
-
 @CucumberOptions(
         plugin = {"pretty", "html:target/hepsiburada/cucumber.html","com.cucumber.listener.ExtentCucumberFormatter"},
-        features = "src/test/resources/FeatureFiles/Second.feature",
+        features = "src/test/resources/FeatureFiles/AddToCartWithAuth.feature",
         glue = "steps",
-        tags = {"@Add-To-Cart-NonAuthanticated"}
+        tags = {"@Add-To-Cart-Authanticated"}
 )
-public class SecondTest  {
+public class AddToCartWithAuthTest {
     @BeforeClass
     public static void setup() {
         ExtentCucumberHelper.setUpFormatter();
