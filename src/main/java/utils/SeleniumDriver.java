@@ -1,23 +1,17 @@
 package utils;
 
-
-
 import java.util.concurrent.TimeUnit;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.main.HomePage;
-
 
 public class SeleniumDriver {
 
-    //private static SeleniumDriver seleniumDriver;
- 
     //initialize webdriver
     public WebDriver driver;
-    public static ThreadLocal<WebDriver> dr = new ThreadLocal<WebDriver>();
+    public static ThreadLocal<WebDriver> webdriver = new ThreadLocal<WebDriver>();
 
     //initialize timeouts
     private static WebDriverWait waitDriver;
@@ -30,22 +24,20 @@ public class SeleniumDriver {
     }
 
     public static void setWebDriver(WebDriver driver) {
-
-        dr.set(driver);
+        webdriver.set(driver);
     }
+
     public static WebDriver getDriver() {
-        return dr.get();
+        return webdriver.get();
     }
 
     protected void startWebDriver() {
         WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-
         setWebDriver(driver);
         getDriver().manage().window().maximize();
         getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         getDriver().manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-
     }
 
     public  void tearDown() {
@@ -54,6 +46,7 @@ public class SeleniumDriver {
             getDriver().quit();
         }
     }
+
     public  void waitForPageToLoad()
     {
     	try {

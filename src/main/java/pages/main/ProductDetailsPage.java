@@ -5,20 +5,20 @@ import org.openqa.selenium.By;
 
 public class ProductDetailsPage extends BasePage {
 
-    private final By addToCartButton = By.xpath("//button[@id='addToCart']");
-    private final By addToCartButton2 = By.xpath("//tr[1]//button[1]");
-    private final By closeModel = By.xpath("//a[@class='checkoutui-Modal-2iZXl']//*[local-name()='svg']");
+    private final By ADD_TO_CART_BUTTON = By.xpath("//button[@id='addToCart']");
+    private final By ADD_TO_CART_BUTTON_2 = By.xpath("//tr[1]//button[1]");
+    private final By CLOSE_MODAL = By.xpath("//a[@class='checkoutui-Modal-2iZXl']//*[local-name()='svg']");
 
     public void addToCart(){
-        clickToElement(addToCartButton);
+        clickToElement(ADD_TO_CART_BUTTON);
     }
 
     public void addToCartFromDifferentSeller(){
-        clickToElement(addToCartButton2);
+        clickToElement(ADD_TO_CART_BUTTON_2);
     }
 
     public void closeModel(){
-        clickToElement(closeModel);
+        clickToElement(CLOSE_MODAL);
     }
 
 }

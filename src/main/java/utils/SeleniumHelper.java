@@ -10,11 +10,9 @@ public class SeleniumHelper {
 
     public static boolean isElementPresent(WebElement webElement) {
         try {
-            boolean isPresent = webElement.isDisplayed();
-            return isPresent;
+            return webElement.isDisplayed();
         } catch (NoSuchElementException e) {
             return false;
         }
-        
     }
 }

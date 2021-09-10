@@ -5,8 +5,6 @@
       Scenario: Add Product To Cart with authantication
         Given I am on the "https://www.hepsiburada.com/" website of Hepsiburada\.com
         When I move to Giris Yap menu
-        | Menu           |
-        | Girişi Yap     |
         And I click to Giriş Yap link
         And I enter a valid "ahmet_temel88@hotmail.com" email
         And I enter a valid "258025A.t." password

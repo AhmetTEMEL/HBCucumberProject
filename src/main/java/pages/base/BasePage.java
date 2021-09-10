@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utils.SeleniumDriver;
-import utils.SeleniumHelper;
 
 public class BasePage {
 
@@ -20,23 +19,21 @@ public class BasePage {
         this.wait = new WebDriverWait(SeleniumDriver.getDriver(), SeleniumDriver.TIMEOUT);
     }
 
-    protected void sendKeysToElement(By element,String text){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-        driver.findElement(element).sendKeys(text);
+    protected void sendKeysToElement(By by,String text){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by)).sendKeys(text);
     }
 
-    protected  void moveToElement(By element) {
+    protected  void moveToElement(By by) {
         Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(element)).perform();
+        action.moveToElement(driver.findElement(by)).perform();
     }
 
-    protected void clickToElement(By element) {
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-        driver.findElement(element).click();
+    protected void clickToElement(By by) {
+        wait.until(ExpectedConditions.elementToBeClickable(by)).click();
     }
 
-    protected void selectElementFromList(By element,String selection) {
-        Select select = new Select(driver.findElement(element));
+    protected void selectElementFromList(By by,String selection) {
+        Select select = new Select(driver.findElement(by));
         select.selectByVisibleText(selection);
     }
 }

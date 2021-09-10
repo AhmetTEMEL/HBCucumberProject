@@ -13,13 +13,11 @@ public class AfterActions extends SeleniumDriver{
 
     @After
     public void tearDown(Scenario scenario) {
-    	
 
     	System.out.println(scenario.isFailed());
     	 if (scenario.isFailed()) {
              byte[] screenshotBytes = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
              scenario.embed(screenshotBytes, "image/png");
-          
          }
          tearDown();
     }
