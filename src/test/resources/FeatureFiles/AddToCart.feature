@@ -8,8 +8,8 @@
         | Menu           |
         | Girişi Yap     |
         And I click to Giriş Yap link
-        And I enter a valid "ahmet__temel@hotmail.com" email
-        And I enter a valid "06102429" password
+        And I enter a valid "ahmet_temel88@hotmail.com" email
+        And I enter a valid "258025A.t." password
         And I click to Giriş Yap button
         And I search "telefon" product from searchbox
         And I click to first poduct that listed
